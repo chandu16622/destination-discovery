@@ -1,5 +1,5 @@
-
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Button, Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import visakhapatnam from "../images/visakhapatnam.jpg";
 import tirupathi from "../images/tirupathi.jpg";
@@ -13,6 +13,14 @@ import "../App.css";
 
 function HomePage() {
   const navigate = useNavigate();
+  const [hoveredLink, setHoveredLink] = useState(null);
+
+  const getNavLinkStyle = (linkName) => ({
+    color: hoveredLink === linkName ? "#f8038aff" : "black",
+    fontWeight: hoveredLink === linkName ? "bold" : "500",
+    transition: "all 0.3s ease",
+    textShadow: hoveredLink === linkName ? "1px 1px 3px rgba(0,0,0,0.3)" : "none",
+  });
 
   const cities = [
     {
@@ -138,88 +146,170 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
   ];
 
   return (
-    <div
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhdmVsJTIwd2FsbHBhcGVyfGVufDB8fDB8fHww&fm=jpg&q=60&w=3000')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "100vh",
-        padding: "50px 0",
-      }}
-    >
-      <Container>
-        <h1 className="text-center text-dark mb-5 fw-bold">
-          Explore Andhra Pradesh – Famous Tourist Destinations
-        </h1>
+    <>
+      {/* ✅ Header/Navbar Section */}
+      <Navbar
+        style={{
+          backgroundColor: "white",
+          minHeight: "90px",
+        }}
+        expand="lg"
+        sticky="top"
+      >
+        <Container>
+          <Navbar.Brand
+            href="#home"
+            className="fw-bold"
+            style={{
+              fontSize: "1.8rem",
+              color: "#2b2b2b",
+            }}
+          >
+            🌍 Destination Discoveries
+          </Navbar.Brand>
 
-        <Row>
-          {cities.map((city) => (
-            <Col key={city.id} md={6} lg={4} className="mb-4">
-              <Card 
-                className="shadow-lg border-0 rounded-4 hover-card"
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav className="ms-auto d-flex align-items-center">
+              <Nav.Link
+                href="/"
                 style={{
-                  transition: "all 0.3s ease-in-out",
-                  cursor: "pointer"
+                  ...getNavLinkStyle("home"),
+                  fontSize: "1.2rem",
+                  padding: "10px 20px",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-10px) scale(1.02)";
-                  e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0) scale(1)";
-                  e.currentTarget.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
-                }}
+                onMouseEnter={() => setHoveredLink("home")}
+                onMouseLeave={() => setHoveredLink(null)}
               >
-                <Card.Img
-                  variant="top"
-                  src={city.img}
-                  alt={city.name}
-                  className="rounded-top-4"
-                  style={{ 
-                    height: "220px", 
-                    objectFit: "cover",
-                    transition: "all 0.3s ease"
+                Home
+              </Nav.Link>
+              <Nav.Link
+                href="/about"
+                style={{
+                  ...getNavLinkStyle("about"),
+                  fontSize: "1.2rem",
+                  padding: "10px 20px",
+                }}
+                onMouseEnter={() => setHoveredLink("about")}
+                onMouseLeave={() => setHoveredLink(null)}
+              >
+                About
+              </Nav.Link>
+              <Nav.Link
+                href="/contact"
+                style={{
+                  ...getNavLinkStyle("contact"),
+                  fontSize: "1.2rem",
+                  padding: "10px 20px",
+                }}
+                onMouseEnter={() => setHoveredLink("contact")}
+                onMouseLeave={() => setHoveredLink(null)}
+              >
+                Contact
+              </Nav.Link>
+
+              <Button
+                style={{
+                  backgroundColor: "#6e40ecff",
+                  border: "none",
+                  fontSize: "1.1rem",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                }}
+                className="ms-3"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {/* ✅ Main Home Content */}
+      <div
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhdmVsJTIwd2FsbHBhcGVyfGVufDB8fDB8fHww&fm=jpg&q=60&w=3000')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+          padding: "50px 0",
+        }}
+      >
+        <Container>
+          <h1 className="text-center text-dark mb-5 fw-bold">
+            Explore Andhra Pradesh – Famous Tourist Destinations
+          </h1>
+
+          <Row>
+            {cities.map((city) => (
+              <Col key={city.id} md={6} lg={4} className="mb-4">
+                <Card
+                  className="shadow-lg border-0 rounded-4 hover-card"
+                  style={{
+                    transition: "all 0.3s ease-in-out",
+                    cursor: "pointer",
                   }}
-                />
-                <Card.Body className="text-center">
-                  <Card.Title className="text-primary fw-bold mb-3">
-                    {city.name}
-                  </Card.Title>
-                  <Card.Text
-                    className="text-muted text-start"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-10px) scale(1.02)";
+                    e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0) scale(1)";
+                    e.currentTarget.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={city.img}
+                    alt={city.name}
+                    className="rounded-top-4"
                     style={{
-                      height: "230px",
-                      overflowY: "auto",
-                      textAlign: "justify",
+                      height: "220px",
+                      objectFit: "cover",
+                      transition: "all 0.3s ease",
                     }}
-                  >
-                    {city.brief}
-                  </Card.Text>
-                  <Button
-                    variant="outline-primary"
-                    onClick={() => navigate(`/city/${city.id}`)}
-                    style={{
-                      transition: "all 0.3s ease"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#0d6efd";
-                      e.currentTarget.style.color = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "#0d6efd";
-                    }}
-                  >
-                    View Details
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </div>
+                  />
+                  <Card.Body className="text-center">
+                    <Card.Title className="text-primary fw-bold mb-3">
+                      {city.name}
+                    </Card.Title>
+                    <Card.Text
+                      className="text-muted text-start"
+                      style={{
+                        height: "230px",
+                        overflowY: "auto",
+                        textAlign: "justify",
+                      }}
+                    >
+                      {city.brief}
+                    </Card.Text>
+                    <Button
+                      variant="outline-primary"
+                      onClick={() => navigate(`/city/${city.id}`)}
+                      style={{
+                        transition: "all 0.3s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = "#0d6efd";
+                        e.currentTarget.style.color = "white";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = "transparent";
+                        e.currentTarget.style.color = "#0d6efd";
+                      }}
+                    >
+                      View Details
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 }
 
