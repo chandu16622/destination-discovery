@@ -1,9 +1,9 @@
 
-import React from "react";
+
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
-
+import { Container, Row, Col, Card, Button, Modal } from "react-bootstrap";
 import tirupathi from "../images/tirupathi.jpg";
 import srikakulam from "../images/srikakulam.jpg";
 import araku from "../images/araku.jpg";
@@ -90,7 +90,21 @@ import "../App.css";
 function CityDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  
+  // State for modal
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState(null);
 
+  // Modal handlers
+  const handleShowModal = (place) => {
+    setSelectedPlace(place);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedPlace(null);
+  };
   const cityData = [
     {
       id: 1,
@@ -99,7 +113,7 @@ function CityDetails() {
       places: [
         {
           name: "RK Beach",
-          desc: "A beautiful beach perfect for sunrise views.The beach offers broad stretches of sand, sea breeze, sunrises/sunsets, and is a key leisure spot for both locals and tourists.Try to catch the early morning or evening for the best light and cooler temperature",
+          desc: "Ramakrishna Beach (RK Beach) – The Heartbeat of Visakhapatnam A beautiful beach perfect for sunrise views.The beach offers broad stretches of sand, sea breeze, sunrises/sunsets, and is a key leisure spot for both locals and tourists.Try to catch the early morning or evening for the best light and cooler temperature",
           map: "https://www.google.com/maps?q=RK+Beach+Visakhapatnam",
           img: RKBeach,
         },
@@ -574,9 +588,7 @@ function CityDetails() {
           variant="outline-light"
           className="mb-4"
           onClick={() => navigate(-1)}
-          style={{
-            transition: "all 0.3s ease"
-          }}
+          style={{ transition: "all 0.3s ease" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "white";
             e.currentTarget.style.color = "black";
@@ -609,7 +621,7 @@ function CityDetails() {
                   e.currentTarget.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
                 }}
               >
-                {/* ✅ Place Image Section */}
+                {/* Place Image Section */}
                 <div
                   style={{
                     height: "200px",
@@ -621,7 +633,6 @@ function CityDetails() {
                   }}
                   className="rounded-top-4"
                 >
-                  {/* Dark overlay for readability */}
                   <div
                     style={{
                       position: "absolute",
@@ -634,7 +645,6 @@ function CityDetails() {
                     }}
                   ></div>
 
-                  {/* Place name text */}
                   <h3
                     className="text-white fw-bold text-center px-3"
                     style={{
@@ -650,7 +660,6 @@ function CityDetails() {
                     {place.name}
                   </h3>
 
-                  {/* Icon / Emoji */}
                   <div
                     style={{
                       position: "absolute",
@@ -674,28 +683,23 @@ function CityDetails() {
                 </div>
 
                 <Card.Body className="bg-white">
-                  <Card.Text className="text-muted mb-3">
+                  <Card.Text className="text-muted mb-3" style={{
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden"
+                  }}>
                     {place.desc}
                   </Card.Text>
+                  
+                  {/* More Details Button */}
                   <Button
-                    variant="outline-success"
+                    variant="primary"
                     className="w-100"
-                    onClick={() => window.open(place.map, "_blank")}
-                    style={{
-                      transition: "all 0.3s ease"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#198754";
-                      e.currentTarget.style.color = "white";
-                      e.currentTarget.style.transform = "scale(1.05)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "#198754";
-                      e.currentTarget.style.transform = "scale(1)";
-                    }}
+                    onClick={() => handleShowModal(place)}
+                    style={{ transition: "all 0.3s ease" }}
                   >
-                    📍 View on Google Maps
+                    More Details
                   </Button>
                 </Card.Body>
               </Card>
@@ -703,6 +707,165 @@ function CityDetails() {
           ))}
         </Row>
       </Container>
+
+      {/* Popup Modal - Same Card Style */}
+      {selectedPlace && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            zIndex: 9999,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px"
+          }}
+          onClick={handleCloseModal}
+        >
+          <Card
+            className="shadow-lg border-0 rounded-4 overflow-hidden"
+            style={{
+              maxWidth: "800px",
+              width: "100%",
+              maxHeight: "90vh",
+              overflowY: "auto",
+              transform: "scale(1)",
+              animation: "popupScale 0.3s ease-out"
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={handleCloseModal}
+              style={{
+                position: "absolute",
+                top: "15px",
+                right: "15px",
+                zIndex: 10,
+                background: "white",
+                border: "none",
+                borderRadius: "50%",
+                width: "40px",
+                height: "40px",
+                fontSize: "24px",
+                cursor: "pointer",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              ×
+            </button>
+
+            {/* Place Image Section - Same as card */}
+            <div
+              style={{
+                height: "350px",
+                backgroundImage: `url(${selectedPlace.img || city.img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                position: "relative"
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.4)"
+                }}
+              ></div>
+
+              <h2
+                className="text-white fw-bold text-center px-3"
+                style={{
+                  fontSize: "2.5rem",
+                  textShadow: "2px 2px 8px rgba(0,0,0,0.7)",
+                  position: "absolute",
+                  bottom: "20px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 1,
+                  width: "90%"
+                }}
+              >
+                {selectedPlace.name}
+              </h2>
+
+              <div
+                style={{
+                  position: "absolute",
+                  top: "20px",
+                  left: "20px",
+                  fontSize: "3rem",
+                  opacity: 0.9,
+                  zIndex: 1,
+                }}
+              >
+                {selectedPlace.name.toLowerCase().includes("beach") ? "🏖️" :
+                  selectedPlace.name.toLowerCase().includes("temple") ? "🛕" :
+                    selectedPlace.name.toLowerCase().includes("fort") ? "🏰" :
+                      selectedPlace.name.toLowerCase().includes("waterfall") || selectedPlace.name.toLowerCase().includes("falls") ? "💧" :
+                        selectedPlace.name.toLowerCase().includes("museum") ? "🏛️" :
+                          selectedPlace.name.toLowerCase().includes("park") || selectedPlace.name.toLowerCase().includes("garden") ? "🌳" :
+                            selectedPlace.name.toLowerCase().includes("hill") ? "⛰️" :
+                              selectedPlace.name.toLowerCase().includes("cave") ? "🕳️" :
+                                "📍"}
+              </div>
+            </div>
+
+            <Card.Body className="bg-white p-4">
+              <h5 className="mb-3 fw-bold">About this place</h5>
+              <Card.Text className="text-muted mb-4" style={{ 
+                lineHeight: "1.8", 
+                fontSize: "1.1rem" 
+              }}>
+                {selectedPlace.desc}
+              </Card.Text>
+              
+              <Button
+                variant="success"
+                size="lg"
+                className="w-100"
+                onClick={() => window.open(selectedPlace.map, "_blank")}
+                style={{
+                  transition: "all 0.3s ease"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                }}
+              >
+                📍 View on Google Maps
+              </Button>
+            </Card.Body>
+          </Card>
+        </div>
+      )}
+
+      <style>
+        {`
+          @keyframes popupScale {
+            from {
+              transform: scale(0.8);
+              opacity: 0;
+            }
+            to {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }
