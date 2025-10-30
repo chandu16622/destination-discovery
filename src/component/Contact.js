@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Form, Navbar, Nav } from 'react-bootstrap';
+import  logo from "../images/logo.png";
 
 
 function Contact() {
@@ -59,7 +60,7 @@ function Contact() {
               cursor: "pointer"
             }}
           >
-            ✨Destination Discoveries
+           <img src={logo} alt="Destination Discoveries" className="logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />

@@ -10,6 +10,7 @@ import vijayawada from "../images/vijayawada.jpg";
 import godavari from "../images/godavari.jpg";
 import vijayanagaram from "../images/vijayanagaram.jpg";
 import kadapa from "../images/kadapa.jpg";
+import  logo from "../images/logo.png";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -84,7 +85,9 @@ function LandingPage() {
               color: "#2b2b2b",
             }}
           >
-            ✨ Destination Discoveries
+          
+        <img src={logo} alt="Destination Discoveries" className="logo" />
+      
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />

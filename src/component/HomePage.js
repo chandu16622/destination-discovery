@@ -10,6 +10,7 @@ import godavari from "../images/godavari.jpg";
 import vijayanagaram from "../images/vijayanagaram.jpg";
 import kadapa from "../images/kadapa.jpg";
 import "../App.css";
+import  logo from "../images/logo.png";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -165,7 +166,7 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
               color: "#2b2b2b",
             }}
           >
-            ✨ Destination Discoveries
+           <img src={logo} alt="Destination Discoveries" className="logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Card, Navbar, Nav } from "react-bootstrap";
 import loginBg from "../images/login-bg.jpg";
 import "../App.css";
+import  logo from "../images/logo.png";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ return (
             color: "#2b2b2b",
           }}
         >
-          ✨ Destination Discoveries
+         <img src={logo} alt="Destination Discoveries" className="logo" />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbarScroll" />

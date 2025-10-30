@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { Container, Row, Col, Card, Button, Navbar, Nav } from "react-bootstrap";
+import  logo from "../images/logo.png";
 
 // import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import tirupathi from "../images/tirupathi.jpg";
@@ -609,7 +610,7 @@ function CityDetails() {
         color: "#2b2b2b",
       }}
     >
-      ✨ Destination Discoveries
+     <img src={logo} alt="Destination Discoveries" className="logo" />
     </Navbar.Brand>
 
     <Navbar.Toggle aria-controls="navbarScroll" />
