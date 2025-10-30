@@ -1,7 +1,9 @@
 
 
+
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 
 import { Container, Row, Col, Card, Button, Modal } from "react-bootstrap";
 import tirupathi from "../images/tirupathi.jpg";
@@ -92,7 +94,7 @@ function CityDetails() {
   const navigate = useNavigate();
   
   // State for modal
-  const [showModal, setShowModal] = useState(false);
+  const [, setShowModal] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
 
   // Modal handlers
