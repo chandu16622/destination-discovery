@@ -71,7 +71,7 @@ function LandingPage() {
       <Navbar
         style={{
           backgroundColor: "white",
-          minHeight: "90px",
+          minHeight: "50px",
         }}
         expand="lg"
         sticky="top"
@@ -86,7 +86,14 @@ function LandingPage() {
             }}
           >
           
-        <img src={logo} alt="Destination Discoveries" className="logo" />
+    
+  <img
+    src={logo}
+    alt="Destination Discoveries"
+    className="w-10 h-10"
+  />
+  
+
       
           </Navbar.Brand>
 
@@ -167,6 +174,19 @@ function LandingPage() {
                 onClick={() => navigate("/login")}
               >
                 Login
+              </Button>
+               <Button
+                style={{
+                  backgroundColor: "#6e40ecff",
+                  border: "none",
+                  fontSize: "1.1rem",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                }}
+                className="ms-3"
+                onClick={() => navigate("/signup")}
+              >
+               signup
               </Button>
             </Nav>
           </Navbar.Collapse>
