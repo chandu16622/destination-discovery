@@ -190,7 +190,7 @@ function LandingPage() {
             Discover Beautiful Destinations
           </h1>
           <p className="lead mb-6 fs-3" style={{ color: "white" }}>
-            Explore the world, relive your adventures, and find your next journey.
+            Explore the Andhra, relive your adventures, and find your next journey.
           </p>
           <Button
             style={{

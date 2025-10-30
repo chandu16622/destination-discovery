@@ -183,18 +183,7 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
               >
                 Home
               </Nav.Link>
-              <Nav.Link
-                href="/about"
-                style={{
-                  ...getNavLinkStyle("about"),
-                  fontSize: "1.2rem",
-                  padding: "10px 20px",
-                }}
-                onMouseEnter={() => setHoveredLink("about")}
-                onMouseLeave={() => setHoveredLink(null)}
-              >
-                About
-              </Nav.Link>
+             
               <Nav.Link
                 href="/contact"
                 style={{
@@ -300,7 +289,7 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
                         e.currentTarget.style.color = "#0d6efd";
                       }}
                     >
-                      View Details
+                      View places
                     </Button>
                   </Card.Body>
                 </Card>
