@@ -92,7 +92,7 @@ function CityDetails() {
   const [selectedPlace, setSelectedPlace] = useState(null);
 
 
-   const [hoveredLink, setHoveredLink] = useState(null);
+   const [hoveredLink] = useState(null);
   
     const getNavLinkStyle = (linkName) => ({
       color: hoveredLink === linkName ? "#f8038aff" : "black",
