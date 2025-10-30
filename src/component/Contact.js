@@ -445,7 +445,7 @@ function Contact() {
                       style={{
                         width: "50px",
                         height: "50px",
-                        backgroundColor: "#52abe2ff",
+                        backgroundColor: "blue",
                         border: "none",
                         fontSize: "1.5rem",
                         display: "flex",
