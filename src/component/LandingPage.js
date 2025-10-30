@@ -184,7 +184,7 @@ function LandingPage() {
                   borderRadius: "10px",
                 }}
                 className="ms-3"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/login")}
               >
                signup
               </Button>

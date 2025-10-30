@@ -18,6 +18,7 @@ function App() {
         <Route path="/city/:id" element={<CityDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+         {/* <Route path="/sign" element={<SignupPage />} /> */}
       </Routes>
     </Router>
   );
