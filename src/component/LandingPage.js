@@ -407,7 +407,7 @@ function LandingPage() {
             📧 Email: contact@destinationdiscoveries.com <br />
             📞 Phone: 6301055724
           </p>
-          <p style={{ color: "#f09addff" }}>
+          <p style={{ color: "#292df7ff" }}>
             Follow us on social media for travel inspiration and updates!
           </p>
         </Container>
@@ -415,8 +415,8 @@ function LandingPage() {
 
       {/* Footer */}
       <footer
-        className="text-white text-center py-3"
-        style={{ backgroundColor: "#b2a8eeff" }}
+        className="text-dark text-center py-3"
+        style={{ backgroundColor: "#ddd8f8ff" }}
       >
         © {new Date().getFullYear()} Destination Discoveries. All rights
         reserved.

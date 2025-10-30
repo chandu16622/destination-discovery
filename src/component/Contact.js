@@ -503,8 +503,8 @@ function Contact() {
 
       {/* Footer */}
       <footer
-        className="text-white text-center py-4"
-        style={{ backgroundColor: "#2d3748" }}
+        className="text-white text-center py-6"
+        style={{ backgroundColor: "#a478ebff" }}
       >
         <Container>
           <p className="mb-0">

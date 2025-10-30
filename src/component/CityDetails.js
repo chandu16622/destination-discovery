@@ -4,8 +4,9 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import { Container, Row, Col, Card, Button, Navbar, Nav } from "react-bootstrap";
 
-import { Container, Row, Col, Card, Button, Modal } from "react-bootstrap";
+// import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import tirupathi from "../images/tirupathi.jpg";
 import srikakulam from "../images/srikakulam.jpg";
 import araku from "../images/araku.jpg";
@@ -30,7 +31,6 @@ import Silathoranam from "../images/Silathoranam.jpg";
 import ChandragiriFort from "../images/ChandragiriFort.jpg";
 import TalakonaWaterfalls from "../images/TalakonaWaterfalls.jpg";
 import MangapuramTemple from "../images/MangalagiriTemple.jpg";
-
 import ArasavalliTemple from "../images/Arasavalli.jpg";
 import SrikurmamTemple from "../images/SrikurmamTemple.jpg";
 import KalingapatnamBeach from "../images/KalingapatnamBeach.jpg";
@@ -47,8 +47,6 @@ import PadmapuramGardens from "../images/PadmapuramGardens.jpg";
 import TribalMuseum from "../images/TribalMuseum.jpg";
 import ChaparaiWaterfalls from "../images/ChaparaiWaterfalls.jpg";
 import PadmapuramTrek from "../images/PadmapuramTrek.jpg";  // ... existing imports ...
-
-
 import KanakaDurga from "../images/KanakaDurgaTemple.jpg";
 import BhavaniIsland from "../images/BhavaniIsland.jpg";
 import PrakasamBarrage from "../images/PrakasamBarrage.jpg";
@@ -57,8 +55,6 @@ import MangalagiriTemple from "../images/MangalagiriTemple.jpg";
 import GandhiHill from "../images/GandhiHill.jpg";
 import EluruRoadPark from "../images/EluruRoadPark.jpg";
 import KrishnaRiverfront from "../images/KrishnaRiverfront.jpg";
-
-
 import papiHills from "../images/PapiHills.jpg";
 import dindiBackwaters from "../images/DindiBackwaters.jpg";
 import dowleswaramBarrage from "../images/DowleswaramBarrage.jpg";
@@ -67,7 +63,6 @@ import rajahmundryBoatRides from "../images/RajahmundryBoatRides.jpg";
 import kadiyamGardens from "../images/KadiyamGardens.jpg";
 import vasishtaGodavari from "../images/VasishtaGodavari.jpg";
 import papikondaNationalPark from "../images/PapikondaNationalPark.jpg";
-
 import VizianagaramFort from "../images/VizianagaramFort.jpg";
 import ThatipudiReservoir from "../images/ThatipudiReservoir.jpg";
 import RamatheerthamTemple from "../images/RamatheerthamTemple.jpg";
@@ -76,8 +71,6 @@ import KumiliFort from "../images/KumiliFort.jpg";
 import GovindapuramHill from "../images/GovindapuramHill.jpg";
 import VizianagaramMuseum from "../images/VizianagaramMuseum.jpg";
 import Pydithalliammavaru from "../images/Pydithalliammavaru.jpg";
-
-
 import GandikotaFort from "../images/GandikotaFort.jpg";
 import BelumCaves from "../images/BelumCaves.jpg";
 import AmeenPeerDargah from "../images/AmeenPeerDargah.jpg";
@@ -96,6 +89,16 @@ function CityDetails() {
   // State for modal
   const [, setShowModal] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
+
+
+   const [hoveredLink, setHoveredLink] = useState(null);
+  
+    const getNavLinkStyle = (linkName) => ({
+      color: hoveredLink === linkName ? "#f8038aff" : "black",
+      fontWeight: hoveredLink === linkName ? "bold" : "500",
+      transition: "all 0.3s ease",
+      textShadow: hoveredLink === linkName ? "1px 1px 3px rgba(0,0,0,0.3)" : "none",
+    });
 
   // Modal handlers
   const handleShowModal = (place) => {
@@ -567,15 +570,15 @@ function CityDetails() {
         padding: "50px 0",
         backgroundImage: `url(${city.img})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition:"static",
         backgroundRepeat: "no-repeat",
-        position: "relative",
+        position: "static",
       }}
     >
       {/* Dark overlay for readability */}
       <div
         style={{
-          position: "absolute",
+          position: "static",
           top: 0,
           left: 0,
           width: "100%",
@@ -584,6 +587,68 @@ function CityDetails() {
           zIndex: 1,
         }}
       ></div>
+
+<Navbar
+  style={{
+    backgroundColor: "white",
+    minHeight: "90px",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000,
+  }}
+  expand="lg"
+>
+  <Container>
+    <Navbar.Brand
+      href="#home"
+      className="fw-bold"
+      style={{
+        fontSize: "1.8rem",
+        color: "#2b2b2b",
+      }}
+    >
+      ✨ Destination Discoveries
+    </Navbar.Brand>
+
+    <Navbar.Toggle aria-controls="navbarScroll" />
+    <Navbar.Collapse id="navbarScroll">
+      <Nav className="ms-auto d-flex align-items-center">
+        {/* 🏠 Back to Home button */}
+        <Button
+          style={{
+            backgroundColor: "#6e40ecff",
+            border: "1px solid #ccc",
+            fontSize: "1.1rem",
+            padding: "10px 20px",
+            borderRadius: "10px",
+            color: "#cbf1e5ff",
+          }}
+          onClick={() => navigate("/home")} // 👈 adjust path if needed
+        >
+          🏠 Home
+        </Button>
+
+        {/* 🚪 Logout button */}
+        <Button
+          style={{
+            backgroundColor: "#6e40ecff",
+            border: "none",
+            fontSize: "1.1rem",
+            padding: "10px 20px",
+            borderRadius: "10px",
+          }}
+          className="ms-3"
+          onClick={() => navigate("/logout")}
+        >
+          Logout
+        </Button>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
 
       <Container style={{ position: "relative", zIndex: 2 }}>
         <Button
