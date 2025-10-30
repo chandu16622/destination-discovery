@@ -113,7 +113,7 @@ function CityDetails() {
       places: [
         {
           name: "RK Beach",
-          desc: "Ramakrishna Beach (RK Beach) – The Heartbeat of Visakhapatnam A beautiful beach perfect for sunrise views.The beach offers broad stretches of sand, sea breeze, sunrises/sunsets, and is a key leisure spot for both locals and tourists.Try to catch the early morning or evening for the best light and cooler temperature.Stretching along the Bay of Bengal, this stunning shoreline is not just a place to relax but also a symbol of the city’s vibrant coastal charm. With its golden sands, rhythmic waves, and refreshing sea breeze, RK Beach offers visitors a perfect blend of natural beauty, leisure, and culture.Food lovers can enjoy freshly prepared seafood and local street delicacies served by small stalls that line the promenade. The evenings are especially delightful as the area comes alive with soft music, glowing lights, and the aroma of roasted corn and local snacks drifting through the salty air.",
+          desc: "Ramakrishna Beach (RK Beach) – The Heartbeat of Visakhapatnam A beautiful beach perfect for sunrise views.The beach offers broad stretches of sand, sea breeze, sunrises/sunsets, and is a key leisure spot for both locals and tourists.Try to catch the early morning or evening for the best light and cooler temperature.Stretching along the Bay of Bengal, this stunning shoreline is not just a place to relax but also a symbol of the city’s vibrant coastal charm. With its golden sands, rhythmic waves, and refreshing sea breeze, RK Beach offers visitors a perfect blend of natural beauty, leisure, and culture. The evenings are especially delightful as the area comes alive with soft music, glowing lights, and the aroma of roasted corn and local snacks drifting through the salty air.",
           map: "https://www.google.com/maps?q=RK+Beach+Visakhapatnam",
           img: RKBeach,
         },
@@ -554,6 +554,7 @@ function CityDetails() {
         <h2>City not found</h2>
         <Button onClick={() => navigate("/")}>Go Back</Button>
       </Container>
+      
     );
   }
 
@@ -721,7 +722,8 @@ function CityDetails() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            padding: "20px"
+            padding: "20px",
+            
           }}
           onClick={handleCloseModal}
         >

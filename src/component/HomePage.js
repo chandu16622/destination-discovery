@@ -165,14 +165,14 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
               color: "#2b2b2b",
             }}
           >
-            🌍 Destination Discoveries
+            ✨ Destination Discoveries
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="ms-auto d-flex align-items-center">
               <Nav.Link
-                href="/"
+                href="#places"
                 style={{
                   ...getNavLinkStyle("home"),
                   fontSize: "1.2rem",
@@ -181,9 +181,10 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
                 onMouseEnter={() => setHoveredLink("home")}
                 onMouseLeave={() => setHoveredLink(null)}
               >
-                Home
+                Places
               </Nav.Link>
-             
+
+
               <Nav.Link
                 href="/contact"
                 style={{
@@ -216,7 +217,7 @@ Kadapa remains an underrated gem waiting to be fully explored by travelers.`,
       </Navbar>
 
       {/* ✅ Main Home Content */}
-      <div
+      <div id="places"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhdmVsJTIwd2FsbHBhcGVyfGVufDB8fDB8fHww&fm=jpg&q=60&w=3000')",

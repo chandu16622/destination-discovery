@@ -59,7 +59,7 @@ function Contact() {
               cursor: "pointer"
             }}
           >
-            🌍 Destination Discoveries
+            ✨Destination Discoveries
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />

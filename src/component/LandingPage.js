@@ -84,7 +84,7 @@ function LandingPage() {
               color: "#2b2b2b",
             }}
           >
-            🌍 Destination Discoveries
+            ✨ Destination Discoveries
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
