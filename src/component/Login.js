@@ -13,7 +13,7 @@ function LoginPage() {
   const [hoveredLink, setHoveredLink] = useState(null);
 
   const getNavLinkStyle = (linkName) => ({
-    color: hoveredLink === linkName ? "#f8038aff" : "black",
+    color: hoveredLink === linkName ? "#0307f8ff" : "black",
     fontWeight: hoveredLink === linkName ? "bold" : "500",
     transition: "all 0.3s ease",
     textShadow: hoveredLink === linkName ? "1px 1px 3px rgba(0,0,0,0.3)" : "none",

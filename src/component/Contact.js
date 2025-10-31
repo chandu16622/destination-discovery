@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Form, Navbar, Nav } from 'react-bootstrap';
-import  logo from "../images/logo.png";
+import logo from "../images/logo.png";
 
 
 function Contact() {
@@ -33,7 +33,7 @@ function Contact() {
   };
 
   const getNavLinkStyle = (linkName) => ({
-    color: hoveredLink === linkName ? "#f8038aff" : "black",
+    color: hoveredLink === linkName ? "#1b03f8ff" : "black",
     fontWeight: hoveredLink === linkName ? "bold" : "500",
     transition: "all 0.3s ease",
     textShadow: hoveredLink === linkName ? "1px 1px 3px rgba(0,0,0,0.3)" : "none",
@@ -45,7 +45,13 @@ function Contact() {
       <Navbar
         style={{
           backgroundColor: "white",
-          minHeight: "90px",
+          minHeight: "40px",
+          top: -20,
+          // position: "fixed",
+          // top: -40,
+          // left: 0,
+          // right: 0,
+          // zIndex: 1000,
         }}
         expand="lg"
         sticky="top"
@@ -60,7 +66,7 @@ function Contact() {
               cursor: "pointer"
             }}
           >
-           <img src={logo} alt="Destination Discoveries" className="logo" />
+            <img src={logo} alt="Destination Discoveries" className="logo" />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -128,13 +134,26 @@ function Contact() {
               >
                 Login
               </Button>
+              <Button
+                style={{
+                  backgroundColor: "#6e40ecff",
+                  border: "none",
+                  fontSize: "1.1rem",
+                  padding: "10px 20px",
+                  borderRadius: "10px",
+                }}
+                className="ms-3"
+                onClick={() => navigate("/signup")}
+              >
+                signup
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
       {/* Contact Page Content */}
-      <div 
+      <div
         style={{
           minHeight: "100vh",
           background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
@@ -143,14 +162,11 @@ function Contact() {
       >
         <Container>
           {/* Header */}
-          <div className="text-center mb-5">
-            <h1 className="display-3 fw-bold text-white mb-3">
+          <div className="text-center mb-8">
+            <h6 className="display-4 fw-bold text-white mb-2">
               Get In Touch
-            </h1>
-            <p className="lead text-white fs-4">
-              Have questions about your next adventure? We're here to help you plan 
-              the perfect journey through Andhra Pradesh!
-            </p>
+            </h6>
+            
           </div>
 
           <Row className="g-4 mb-5">
@@ -158,7 +174,7 @@ function Contact() {
             <Col md={6} lg={3}>
               <Card className="shadow-lg border-0 rounded-4 h-100 text-center p-4">
                 <div className="mb-3">
-                  <div 
+                  <div
                     className="mx-auto rounded-circle d-flex align-items-center justify-content-center"
                     style={{
                       width: "80px",
@@ -186,7 +202,7 @@ function Contact() {
             <Col md={6} lg={3}>
               <Card className="shadow-lg border-0 rounded-4 h-100 text-center p-4">
                 <div className="mb-3">
-                  <div 
+                  <div
                     className="mx-auto rounded-circle d-flex align-items-center justify-content-center"
                     style={{
                       width: "80px",
@@ -216,7 +232,7 @@ function Contact() {
             <Col md={6} lg={3}>
               <Card className="shadow-lg border-0 rounded-4 h-100 text-center p-4">
                 <div className="mb-3">
-                  <div 
+                  <div
                     className="mx-auto rounded-circle d-flex align-items-center justify-content-center"
                     style={{
                       width: "80px",
@@ -231,14 +247,14 @@ function Contact() {
                   <h5 className="fw-bold mb-3" style={{ color: "#667eea" }}>
                     Call Us
                   </h5>
-                  
+
                   <p className="text-muted mb-1">
                     <strong>Mobile:</strong><br />+91 6301055724
                   </p>
                   <p className="text-muted mb-0">
                     <strong>WhatsApp:</strong><br />+91 9553099956
                   </p>
-                  
+
                 </Card.Body>
               </Card>
             </Col>
@@ -246,7 +262,7 @@ function Contact() {
             <Col md={6} lg={3}>
               <Card className="shadow-lg border-0 rounded-4 h-100 text-center p-4">
                 <div className="mb-3">
-                  <div 
+                  <div
                     className="mx-auto rounded-circle d-flex align-items-center justify-content-center"
                     style={{
                       width: "80px",
@@ -393,8 +409,8 @@ function Contact() {
             <Col lg={5}>
               {/* Social Media */}
               <Card className="shadow-lg border-0 rounded-4 p-4 mb-4"
-                style={{ 
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" 
+                style={{
+                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
                 }}
               >
                 <Card.Body>

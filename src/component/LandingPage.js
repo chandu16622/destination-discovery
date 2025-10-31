@@ -60,7 +60,7 @@ function LandingPage() {
   ];
 
   const getNavLinkStyle = (linkName) => ({
-    color: hoveredLink === linkName ? "#f8038aff" : "black",
+    color: hoveredLink === linkName ? "#0351f8ff" : "black",
     fontWeight: hoveredLink === linkName ? "bold" : "500",
     transition: "all 0.3s ease",
     textShadow: hoveredLink === linkName ? "1px 1px 3px rgba(0,0,0,0.3)" : "none",
@@ -72,6 +72,12 @@ function LandingPage() {
         style={{
           backgroundColor: "white",
           minHeight: "20px",
+          position: "fixed",
+          top: -20,
+          textAlign:"center",
+          left: 0,
+          right: 0,
+          zIndex: 1000,
         }}
         expand="lg"
         sticky="top"
@@ -99,7 +105,8 @@ function LandingPage() {
 
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="ms-auto d-flex align-items-center">
+            <Nav className="mx-auto d-flex align-items-center ml"
+            style={{ width: 'fit-content' }}>
               <Nav.Link
                 href="#home"
                 style={{
@@ -161,7 +168,7 @@ function LandingPage() {
               >
                 Contact
               </Nav.Link>
-
+          <div className="d-none d-lg-flex align-items-left ml  me-auto">
               <Button
                 style={{
                   backgroundColor: "#6e40ecff",
@@ -169,6 +176,7 @@ function LandingPage() {
                   fontSize: "1.1rem",
                   padding: "10px 20px",
                   borderRadius: "10px",
+                  marginLeft: "200px" ,
                 }}
                 className="ms-3"
                 onClick={() => navigate("/login")}
@@ -187,7 +195,7 @@ function LandingPage() {
                 onClick={() => navigate("/signup")}
               >
                 Signup
-              </Button>
+              </Button></div>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -231,49 +239,63 @@ function LandingPage() {
 
       {/* About Section */}
       <section
-        id="about"
-        className="py-5"
-        style={{ background: "linear-gradient(to right, white, #d2c3f3ff)" }}
-      >
-        <Container>
-          <h2
-            className="text-center fw-bold mb-4"
-            style={{ color: "#001279ff" }}
-          >
-            About Us
-          </h2>
-          <p
-            className="text-center mx-auto w-75 fs-5"
-            style={{ color: "#004d40" }}
-          >
-            <strong>Destination Discoveries</strong> is a travel-inspired
-            platform designed for wanderers and explorers. Whetheryou'relooking to revisit old memories or uncover hidden gems, we bring the
-            world closer to you.
+      id="about"
+      className="py-5"
+      style={{ background: "linear-gradient(to right, white, #d2c3f3ff)" }}
+    >
+      <Container>
+        <h2
+          className="text-center fw-bold mb-4"
+          style={{ color: "#001279ff" }}
+        >
+          About Us
+        </h2>
+        
+        {/* Main Descriptive Paragraph */}
+        <p
+          className="text-center mx-auto fs-5 mb-4"
+          style={{ color: "#004d40", maxWidth: '1500px' }} // Added maxWidth for better readability
+        >
+          <strong>Destination Discoveries</strong> is a travel-inspired platform designed for wanderers and explorers. Whether you're looking to revisit old memories or uncover hidden gems, we bring the world closer to you. Every journey tells a story—from the vibrant streets of cities to the quiet charm of hidden villages. Our mission is to help you discover places that aren't just destinations on a map, but memories waiting to happen.
+        </p>
+
+        {/* Section Title for the Discoveries */}
+        <h4 className="text-center mb-3 fw-bold" style={{ color: "#004d40" }}>
+          Explore Our Featured Discoveries:
+        </h4>
+
+        {/* Points in an Unordered List */}
+        <ul className="mx-auto fs-5" style={{ color: "#004d40", listStyleType: 'none', paddingLeft: 0, maxWidth: '900px' }}>
+          <li className="mb-2">
+            **🏖️ Beaches & Coastal Spots**
             <br />
-            From serene beaches to sacred temples and lush green valleys, every
-            destination has a story. Start yourjourney with us and celebrate
-            the joy of travel and discovery.We believe everyjourney tells a story — from the vibrant streets of cities to the quiet charm of hidden villages. Our mission is to help you discover places that aren't just destinations on a map, but memories waiting to happen.
-
-            • 🏖️ Beaches & Coastal Spots
             Relax along golden shores, enjoy water adventures, and soak in breathtaking sunsets.
-
-
-            • 🏞️ Hill Stations & Nature Escapes
+          </li>
+          <li className="mb-2">
+            **🏞️ Hill Stations & Nature Escapes**
+            <br />
             Cool weather, waterfalls, trekking trails, and peaceful views to refresh your soul.
-
-            • 🕍 Heritage & Pilgrimage Sites
+          </li>
+          <li className="mb-2">
+            **🕍 Heritage & Pilgrimage Sites**
+            <br />
             Discover India's culture, temples, history, and age-old traditions that inspire millions.
-
-
-            • 🏙️ Smart Cities & Urban Lifestyle
+          </li>
+          <li className="mb-2">
+            **🏙️ Smart Cities & Urban Lifestyle**
+            <br />
             Experience shopping, nightlife, modern attractions, and entertainment for all ages.
+          </li>
+          <li className="mb-2">
+            **🌄 Hidden Gems & Offbeat Places**
+            <br />
+            Less crowded, more adventure—perfect for explorers who love discovering something new!
+          </li>
+        </ul>
 
-
-            • 🌄 Hidden Gems & Offbeat Places
-            Less crowded, more adventure — perfect for explorers who love discovering something new!
-          </p>
-        </Container>
-      </section>
+      </Container>
+    </section>
+  
 
       {/* Places Section */}
       <section
