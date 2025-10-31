@@ -90,7 +90,7 @@ function LandingPage() {
   <img
     src={logo}
     alt="Destination Discoveries"
-    className="w-10 h-10"
+    className="w-1 h-1"
   />
   
 
