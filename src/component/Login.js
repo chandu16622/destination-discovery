@@ -75,7 +75,7 @@ function LoginPage() {
               </Nav.Link>
 
               <Nav.Link
-                href="/"
+                href="/contact"
                 style={{
                   ...getNavLinkStyle("contact"),
                   fontSize: "1.2rem",
