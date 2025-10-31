@@ -584,9 +584,9 @@ function CityDetails() {
 <Navbar
   style={{
     backgroundColor: "white",
-    minHeight: "90px",
+    minHeight: "40px",
     position: "fixed",
-    top: 0,
+    top: -15,
     left: 0,
     right: 0,
     zIndex: 1000,

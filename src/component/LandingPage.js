@@ -71,7 +71,7 @@ function LandingPage() {
       <Navbar
         style={{
           backgroundColor: "white",
-          minHeight: "50px",
+          minHeight: "20px",
         }}
         expand="lg"
         sticky="top"
