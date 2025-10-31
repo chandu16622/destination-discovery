@@ -6,6 +6,8 @@ import CityDetails from './component/CityDetails';
 import Contact from './component/Contact';
 import Login from './component/Login'; // If you have a login component
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SignupPage from "./component/SignupPage";
+
 import './App.css';
 
 
@@ -18,7 +20,8 @@ function App() {
         <Route path="/city/:id" element={<CityDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-         {/* <Route path="/sign" element={<SignupPage />} /> */}
+        <Route path="/signup" element={<SignupPage />} />
+
       </Routes>
     </Router>
   );

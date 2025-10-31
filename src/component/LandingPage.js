@@ -10,7 +10,7 @@ import vijayawada from "../images/vijayawada.jpg";
 import godavari from "../images/godavari.jpg";
 import vijayanagaram from "../images/vijayanagaram.jpg";
 import kadapa from "../images/kadapa.jpg";
-import  logo from "../images/logo.png";
+import logo from "../images/logo.png";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -85,16 +85,16 @@ function LandingPage() {
               color: "#2b2b2b",
             }}
           >
-          
-    
-  <img
-    src={logo}
-    alt="Destination Discoveries"
-    className="w-1 h-1"
-  />
-  
 
-      
+
+            <img
+              src={logo}
+              alt="Destination Discoveries"
+              className="w-1 h-1"
+            />
+
+
+
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -175,7 +175,7 @@ function LandingPage() {
               >
                 Login
               </Button>
-               <Button
+              <Button
                 style={{
                   backgroundColor: "#6e40ecff",
                   border: "none",
@@ -184,9 +184,9 @@ function LandingPage() {
                   borderRadius: "10px",
                 }}
                 className="ms-3"
-                onClick={() => navigate("/login")}
+                onClick={() => navigate("/signup")}
               >
-               signup
+                Signup
               </Button>
             </Nav>
           </Navbar.Collapse>
